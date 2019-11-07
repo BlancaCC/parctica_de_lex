@@ -11,6 +11,11 @@ LETRA 	T 	R 	W 	A 	G 	M 	Y 	F 	P 	D 	X 	B
  
 RESTO 	12 	13 	14 	15 	16 	17 	18 	19 	20 	21 	22
 LETRA 	N 	J 	Z 	S 	Q 	V 	H 	L 	C 	K 	E 
+
+
+Telephone number:
+- eight number can star with 8 or 9 (80 and 90) are not avaible or 6 or 7 if it is a mobile phone
+
 Grananda 2/XI/19
  */
 
@@ -30,13 +35,15 @@ let		[A-Za-z]
 num		[0-9]
 car	        ({let}|{num}|\.|_)
 car2            ({car}|[@#~¡'¿?=&%$!])
-
+telephone       [89][1-9]{num}{7}
+movile          [67]{num}{8}
 
   
 
 %%
 
 {num}{8}{letrasDni}	{posibleNIF(yytext);}  //DNI
+[^0-9]({telephone}|{movile})[^0-9] {printf("telefono %s\n", yytext); } // telephone
 .|\n                     {;}
 %%
 
