@@ -2,15 +2,6 @@
 .SUFFIXES:
 .PHONY: exeall
 .PRECIOUS: %.out
-compilador:=g++
-
-
-# count.out:  count.l
-# 	flex count.l
-# 	gcc lex.yy.c -o $@ -lfl
-# 	./$@  a.txt
-
-
 
 pruebas:
 	gcc pruebas.c -o pruebas.out
@@ -18,7 +9,6 @@ pruebas:
 
 count: count.out
 	./$< a.txt
-
 correo: correo.out
 	./$< correo.txt
 
@@ -27,6 +17,10 @@ url_correo: corre_url.out
 
 nif_fechas_telefonos: nif_fechas_telefonos.out
 	./$< nif.txt
+
+comentario: comentario.out
+	./$< barberia.cpp
+
 
 %.out: %.l
 	flex $<
