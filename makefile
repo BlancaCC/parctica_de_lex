@@ -21,6 +21,8 @@ nif_fechas_telefonos: nif_fechas_telefonos.out
 comentario: comentario.out
 	./$< barberia.cpp
 
+translate: translate.out
+	./$< fbd.txt
 
 %.out: %.l
 	flex $<
